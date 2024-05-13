@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Text Blend Animation</title>
+    <style>
+        .text-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #f0f0f0;
+        }
+        
+        .text {
+          font-family: 'Arial', sans-serif;
+          font-size: 48px;
+          color: #333;
+          letter-spacing: -1em; /* Initial letter spacing */
+          animation: text-blend 2s ease-in-out forwards; /* Define animation */
+        }
+        
+        @keyframes text-blend {
+          0% {
+            letter-spacing: -1em; /* Start state, text overlapped */
+          }
+          50% {
+            letter-spacing: 0em; /* Middle state, text separated */
+          }
+          100% {
+            letter-spacing: 1em; /* End state, letter spacing expanded */
+          }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-container">
+        <span class="text">Blend</span>
+    </div>
+</body>
+
+</html>
