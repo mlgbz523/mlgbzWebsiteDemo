@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+        html,
+        body {
+            overflow-y: scroll;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            margin: 0;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
         section:nth-child(1) {
 
             background-image: url('https://jsd.cdn.zzko.cn/gh/mlgbz523/imgURL/src/wallhaven-gplwxe_1920x1080.png');
@@ -32,11 +47,16 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4rem;
-            /* color: white; */
+            width: 100vw;
+            /* 确保宽度也是100%视窗宽 */
+            margin: 0;
+            /* 移除可能的外边距 */
+            padding: 0;
+            /* 移除可能的内边距 */
+            border: none;
+            /* 移除边框 */
+            box-sizing: border-box;
+            /* 包括边框和内边距在内的宽高计算 */
         }
 
         .text-container {
@@ -115,7 +135,9 @@
 
             gsap.fromTo(
                 section,
-                { backgroundPositionY: `-${window.innerHeight / 1}px` },
+                {
+                    backgroundPositionY: `-${window.innerHeight / 1}px`
+                },
                 {
                     backgroundPositionY: `${window.innerHeight / 1}px`,
                     ease: 'none',
