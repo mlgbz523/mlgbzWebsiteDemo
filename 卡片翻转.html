@@ -1,21 +1,52 @@
-<body>
-    <div class="card">
-    kimg class="face" src="./assets/logo.png" alt=""/
-    >
-    p class="back">
-    <span>渡一教育</span></p>
-    </div></body>
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卡片翻转示例</title>
+<style>
     .card {
-        perspective: 500px;}
-        .face {
-        transition :0.5s;
-        backface-visibility: hidden ;}
-        .card :hover .face {
-        transform : rotateY (-180deg);}
-        .back {
-            transform: rotateY ( 180deg);backface-visibility: hidden;transition: 8.5s;
-            }
-            .card :hover .back {
-            transform: rotateY (日);
-            
+        width: 180px;
+        height: 250px;
+        position: relative;
+        perspective: 500px;
+    }
+    .face, .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        text-align: center;
+        padding: 20px;
+        backface-visibility: hidden;
+        transition: transform 0.6s;
+    }
+    .face {
+        background-color: #fff;
+    }
+    .back {
+        background-color: #f1f1f1;
+        transform: rotateY(180deg);
+    }
+    .card:hover .face {
+        transform: rotateY(-180deg);
+    }
+    .card:hover .back {
+        transform: rotateY(0deg);
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="face">
+        <img src="./assets/logo.png" alt="Logo" style="max-width: 100%; height: auto;">
+    </div>
+    <div class="back">
+        <span>渡一教育</span>
+    </div>
+</div>
+
+</body>
+</html>
