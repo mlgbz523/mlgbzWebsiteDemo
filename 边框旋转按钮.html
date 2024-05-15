@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转边框按钮示例</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            color: #0ebeff;
+            font-size: 24px;
+            background: #000;
+            border: none;
+            outline: none;
+            z-index: 1;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            width: 20vw; /* 设置按钮宽度为屏幕宽度的20% */
+            height: 10vh;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            background: #000;
+            width: calc(100% - 4px);
+            height: calc(100% - 4px);
+            left: 2px;
+            top: 2px;
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            background: #f40;
+            width: 200%;
+            height: 200%;
+            z-index: -2;
+            left: 50%;
+            top: 50%;
+            transform-origin: 0 0;
+            animation: rotate 2s infinite linear;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 应用了样式的按钮 -->
+<button>点击我</button>
+
+</body>
+</html>
